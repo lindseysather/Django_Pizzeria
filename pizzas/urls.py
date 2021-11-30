@@ -6,4 +6,5 @@ app_name = 'pizzas'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('pizzas_object', views.pizzas_object, name='pizzas_object'),
 ]
