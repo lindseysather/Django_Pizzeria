@@ -17,6 +17,7 @@ class Toppings(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     #returns toppings (pineapple, ham) as text (instead of Topping Object (1))
+    #string method
     def __str__(self):
         return self.name
         #after we wrote this, we makemigrations and migrate because we change something 

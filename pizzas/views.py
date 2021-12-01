@@ -15,3 +15,14 @@ def pizzas_object(request):
     context = {'pizzas_object':pizzas_object}
 
     return render(request, 'pizzas/pizzas_object.html', context)
+
+def pizza(request, pizza_id):
+    pizza = Pizza.objects.get(id=pizza_id)
+    
+    toppings = pizza.toppings_set.all()
+
+    #key represents variable name in template
+    #value represents variable name view
+    context = {'pizza':pizza, 'toppings':toppings}
+
+    return render(request, 'pizzas/pizza.html', context)
