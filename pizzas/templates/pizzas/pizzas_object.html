@@ -8,7 +8,9 @@
     {% for p in pizzas_object %}
 
     
-    <li> {{ p }} </li>
+    <li> 
+        <a href="{% url 'pizzas:pizza' p.id %}">{{ p }}</a> 
+    </li>
     {% empty %}
     <li>No pizzas have been added yet.</li>
 
