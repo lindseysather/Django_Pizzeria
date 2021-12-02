@@ -7,12 +7,16 @@
 <ul>
     {% for t in toppings %}
     <li>
-        <p>{{t.name}}</p>
-        <p>{{t.date_added}}</p>
+        <p>{{t.name |linebreaks}}</p>
+        <p>{{t.date_added |date:'M d, Y H:i' }}</p>
     </li>
     {% empty %}
     <li> There are no toppings on this pizza yet.</li>
     {% endfor %}
 </ul>
+
+<p>
+    <a href="{% url 'pizzas:new_topping' pizza.id %}">Add a new topping</a>
+</p>
 
 {% endblock content %}
