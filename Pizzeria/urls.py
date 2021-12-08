@@ -17,7 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    #admin url:
     path('admin/', admin.site.urls),
-    #include all urls in pizzas folder
+
+    #include all urls in pizzas folder:
     path('', include('pizzas.urls')),
+
+    #users url:
+    path('users/', include('users.urls')),
 ]

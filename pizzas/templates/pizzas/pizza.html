@@ -7,7 +7,7 @@
 <ul>
     {% for t in toppings %}
     <li>
-        <p>{{t.name |linebreaks}}</p>
+        <p>{{ t.name }}</p>
         <!--<p>{{t.date_added |date:'M d, Y H:i' }}</p>-->
     </li>
     {% empty %}
