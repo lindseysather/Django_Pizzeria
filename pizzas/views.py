@@ -30,7 +30,7 @@ def pizza(request, pizza_id):
 
     return render(request, 'pizzas/pizza.html', context)
 
-'''from class - might delete'''
+'''
 def new_pizza(request):
     #if request is a get method
     if request.method != 'POST':
@@ -66,5 +66,4 @@ def new_topping(request, pizza_id):
 
     context = {'form':form, 'pizza':pizza}
     return render(request, 'pizzas/new_topping.html', context)
-
-            #stopped around 5:10 pm
+'''
