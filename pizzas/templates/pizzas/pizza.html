@@ -1,19 +1,28 @@
-{% extends "pizzas/base.html" %}
+{% extends 'pizzas/base.html' %}
 
-{% block content %}
+ {% block page_header %}
+ <h3>{{ pizza }}</h3>
+{% endblock page_header %}
+  
+  {% block content %}
 
-<p>Pizza: {{ pizza }}</p>
+{% for t in toppings %}
 
-<ul>
-    {% for t in toppings %}
-    <li>
-        <p>{{ t.name }}</p>
-        <!--<p>{{t.date_added |date:'M d, Y H:i' }}</p>-->
-    </li>
-    {% empty %}
-    <li> There are no toppings on this pizza yet.</li>
-    {% endfor %}
-</ul>
+<!--create a div element with the selector card-->
+  <div class="card mb-3">
 
+<!--header-->
+<h4 class="card-header">
+{{ t }}
+ </h4>
 
-{% endblock content %}
+<!--places the text of the toppings in a simple box on the card-->
+<div class="card-body">
+   {{ entry.text|linebreaks }}
+ </div>
+   </div>
+ {% empty %}
+   <p>There are no toppings on this pizza.</p>
+ {% endfor %}
+ {% endblock content %}
+

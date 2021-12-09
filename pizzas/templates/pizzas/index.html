@@ -1,10 +1,24 @@
 {% extends "pizzas/base.html" %}
 
-{% block content %}
+<!--tell Django we're about to define what goes in page_haeder-->
+{% block page_header %}
 
-<p>
-    Pizzeria allows you to see the toppings
-    for each kind of pizza available.
-</p>
+<!--jumbotron applies this group of styling from Bootstrap to this element-->
+<div class="jumbotron">
+    
+<!--first-level header-->
+  <h1 class="display-3">Pizzeria</h1>
 
-{% endblock content %}
+<!--message-->
+    <p class="lead">View the each of our pizzas and their toppings. 
+        Please leave comments to tell us what you love about each pizza!
+    </p>
+
+<!--create a button that invites users to register their account-->
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+   role="button">Register &raquo;</a>
+ </div>
+
+<!--close the page_header block-->
+{% endblock page_header %}
+

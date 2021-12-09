@@ -1,22 +1,26 @@
 {% extends "pizzas/base.html" %}
 
+<!--load bootstrap template tags into this template-->
+{% load bootstrap4 %}
+
+<!--define the page_header block, which tells the user what the page is for-->
+{% block page_header %}
+<h2>Log in to your account.</h2>
+{% endblock page_header %}
+
 {% block content %}
 
-<!--If the form's erros attribute is set, we display an error message-->
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-<!--set the action argument as the URL of the login page-->
-<form action="{% url 'users:login' %}" method="post">
+<form method="post" action="{% url 'users:login' %}" class="form">
     {% csrf_token %}
 
-    {{ form.as_p }}
+{% bootstrap_form form %}
 
-    <button name="submit">Log in</button>
-    <!--include a hidden form element, 'next'; the value argument
-        tells Django where to redirect the user after they've logged in successfully-->
-    <input type="hidden" name="next" value="{% url 'pizzas:index' %}" />
+<!--adds bootstrap styling to buttons-->
+{% buttons %}
+<button name="submit" class="btn btn-primary">Log in</button>   
+{% endbuttons %}
+
+<input type="hidden" name="next" value="{% url 'pizzas:index' %}" />
 
 </form>
 

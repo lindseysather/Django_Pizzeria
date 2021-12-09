@@ -1,16 +1,89 @@
-<p>
-    <a href="{% url 'pizzas:index' %}">Pizzeria</a>
-    <a href="{% url 'pizzas:pizzas_object' %}">Pizzas</a>
-{% if user.is_authenticated %}
-Hello, {{ user.username }}.
-<a href="{% url 'users:logout' %}">Log out</a>
-{% else %}   
-<a href="{% url 'users:register' %}">Register</a>
-<a href="{% url 'users:login' %}">Log in</a>
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"content="width=device-width,initial-scale=1,
+shrink-to-fit=no">
+<title>Pizzeria</title>
+
+{%bootstrap_css%}
+{%bootstrap_javascript jquery='full'%}
+
+</head>
+
+<!--body contains the content users will see on a page-->
+<body>
+
+<!--style rules:-->
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+
+<!--set project's name to appear on the far left of the nav bar and make it a link to the homepage-->
+<a class="navbar-brand" href="{% url 'pizzas:index'%}">
+Pizzeria</a>
+ 
+<!--makes navbar a drop-down list if browser window is too narro-->
+<button class="navbar-toggler" type="button" data-toggle="collapse"
+data-target="#navbarCollapse" aria-controls="navbarCollapse"
+aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span></button>
+    
+<!--open a new section of the navigation bar-->
+<div class="collapse navbar-collapse" id="navbarCollapse">
+
+    <!--define a new set of links-->
+ <ul class="navbar-nav mr-auto">
+<!--item in list-->
+  <li class="nav-item">
+ <a class="nav-link" href="{% url 'pizzas:pizzas_object'%}">
+   Pizzas</a></li>
+</ul>
+ 
+
+<!--begin a new set of links-->
+<ul class="navbar-nav ml-auto">
+
+<!--conditional block to displaay messages to users depending on whether or not they're logged in-->
+ {% if user.is_authenticated %}
+ <li class="nav-item">
+
+<!--span element styles pieces of text that are part of a longer line-->
+  <span class="navbar-text">Hello, {{ user.username }}.</span>
+ </li>
+ <li class="nav-item">
+   <a class="nav-link" href="{% url 'users:logout' %}">Log out</a>
+ </li>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'users:login' %}">Log in</a></li>
 {% endif %}
-</p>
+</ul>
 
-{% block content %}
+<!--close the div element that contains the parts of the navigation bar that will collapse on narrow screen-->
+ </div>
 
-{% endblock content %}
+<!--close the navigation bar overall-->
+</nav>
 
+<!--open main tag used for the most significant part of the body of a page-->
+<!--assign container which groups elements on a page-->
+<main role="main" class="container">
+
+<!--first div element contains a page_header block to title most pages-->
+   <div class="pb-2 mb-2 border-bottom">
+ {% block page_header %}{% endblock page_header %}
+   </div>
+
+<!--define div element that conntains the content-->
+   <div>
+ {% block content %}{% endblock content %}
+   </div>
+ </main>
+
+ </body>
+
+ </html>
+    
