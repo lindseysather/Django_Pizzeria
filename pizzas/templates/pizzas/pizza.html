@@ -6,6 +6,31 @@
   
   {% block content %}
 
+  <p>
+    <a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a>
+  </p>
+
+  {% for comment in comments %}
+
+  <!--create a div element with the selector card-->
+    <div class="card mb-3">
+  
+  <!--header-->
+  <h4 class="card-header">
+  {{ comment }}
+   </h4>
+  
+  <!--places the text of the toppings in a simple box on the card-->
+  <div class="card-body">
+     {{ comment.text|linebreaks }}
+   </div>
+     </div>
+   {% empty %}
+     <p>There are no comments on this pizza.</p>
+   {% endfor %}
+
+
+
 {% for t in toppings %}
 
 <!--create a div element with the selector card-->

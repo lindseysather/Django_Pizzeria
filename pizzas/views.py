@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 
 '''from class'''
-from pizzas.forms import ToppingsForm, PizzaForm, ImageForm
-from .forms import ImageForm
-
+from pizzas.forms import ImageForm, CommentForm
 from .models import Pizza
 
 # Create your views here.
@@ -24,10 +22,11 @@ def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     
     toppings = pizza.toppings_set.all()
+    comments = pizza.comment_set.all()
 
     #key represents variable name in template
-    #value represents variable name view
-    context = {'pizza':pizza, 'toppings':toppings}
+    #value represents variable name view 
+    context = {'pizza':pizza, 'toppings':toppings, 'comments':comments}
 
     return render(request, 'pizzas/pizza.html', context)
 
@@ -45,40 +44,22 @@ def image_upload_view(request):
         form = ImageForm()
     return render(request, 'index.html', {'form': form})
 
-'''
-def new_pizza(request):
-    #if request is a get method
-    if request.method != 'POST':
-        form = PizzaForm()
-    else:
-        form = PizzaForm(data=request.POST)
-
-        if form.is_valid():
-            form.save()
-
-            return redirect('pizzas:pizzas_object')
-
-    #know what context is for final
-    context = {'form':form}
-    return render(request, 'pizzas/new_pizza.html', context)
 
 
-def new_topping(request, pizza_id):
+def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     if request.method != 'POST':
-        form = ToppingsForm()
+        form = CommentForm()
     else:
-        form = ToppingsForm(data=request.POST)
+        form = CommentForm(data=request.POST)
 
         if form.is_valid():
             #False will make it not write to the database yet
-            new_topping = form.save(commit=False)
-            new_topping.pizza = pizza
-            
-            new_topping.save()
+            new_comment = form.save(commit=False)
+            new_comment.pizza = pizza
+            new_comment.save()
 
             return redirect('pizzas:pizza', pizza_id=pizza_id)
 
     context = {'form':form, 'pizza':pizza}
-    return render(request, 'pizzas/new_topping.html', context)
-'''
+    return render(request, 'pizzas/new_comment.html', context)
