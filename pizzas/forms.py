@@ -13,3 +13,4 @@ class ToppingsForm(forms.ModelForm):
         model = Toppings
         fields = ['name']
         labels = {'name':''}
+

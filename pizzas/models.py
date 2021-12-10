@@ -23,3 +23,16 @@ class Toppings(models.Model):
     def __str__(self):
         return self.name
         #after we wrote this, we makemigrations and migrate because we change something 
+
+
+'''TRYING TO UPLOAD PHOTOS'''
+class images(models.Model):
+    id_no=models.IntegerField()
+    name=models.CharField(max_length=20)
+    loc=models.CharField(max_length=20)
+    image=models.ImageField(upload_to='images')
+    profile=models.FileField(upload_to='files')
+
+    def __str__(self):
+        return self.name
+
