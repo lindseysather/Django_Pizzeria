@@ -30,10 +30,5 @@ urlpatterns = [
 
     #users url:
     path('users/', include('users.urls')),
-]
 
-'''
-TRYING TO UPLOAD PHOTOS
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-'''
+]

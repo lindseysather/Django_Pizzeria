@@ -26,13 +26,10 @@ class Toppings(models.Model):
 
 
 '''TRYING TO UPLOAD PHOTOS'''
-class images(models.Model):
-    id_no=models.IntegerField()
-    name=models.CharField(max_length=20)
-    loc=models.CharField(max_length=20)
-    image=models.ImageField(upload_to='images')
-    profile=models.FileField(upload_to='files')
+class Image(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images')
 
     def __str__(self):
-        return self.name
+        return self.title
 
