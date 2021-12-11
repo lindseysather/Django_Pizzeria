@@ -6,23 +6,69 @@
   
   {% block content %}
 
-  <p>
-    <a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a>
-  </p>
 
-  {% for comment in comments %}
 
+  <!--header-->
+  <h3
+    <p>Toppings</p>
+  </h3>
+  
+  <!--places the text of the toppings in a simple box on the card-->
+  {% for t in toppings %}
+  <h5
+     <p>{{ t | linebreaks }}</p>
+</h5>
+  
+   {% empty %}
+     <p>There are no toppings on this pizza.</p>
+   {% endfor %}
+  
+  
+  
+   {% for i in images %}
+  
   <!--create a div element with the selector card-->
     <div class="card mb-3">
   
   <!--header-->
   <h4 class="card-header">
-  {{ comment }}
+  {{ image }}
    </h4>
   
   <!--places the text of the toppings in a simple box on the card-->
   <div class="card-body">
-     {{ comment.text|linebreaks }}
+     {{ i }}
+   </div>
+     </div>
+   {% empty %}
+     <p>There are no photos of this pizza.</p>
+   {% endfor %}
+  
+  
+
+<h4>
+   <p>
+    <a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a>
+  </p>
+  </h4>
+
+
+  <!--create a div element with the selector card-->
+
+  
+  <h3
+  <p>Comments</p>
+  </h3>
+
+  {% for comment in comments %}
+  <!--header-->
+  <h5 class="card-header">
+    {{ comment.date_added|date:'M d, Y' }}
+   </h5>
+  
+  <!--places the text of the toppings in a simple box on the card-->
+  <div class="card-body">
+     {{ comment }}
    </div>
      </div>
    {% empty %}
@@ -30,26 +76,6 @@
    {% endfor %}
 
 
+   {% endblock content %}
 
-{% for t in toppings %}
-
-<!--create a div element with the selector card-->
-  <div class="card mb-3">
-
-<!--header-->
-<h4 class="card-header">
-{{ t }}
- </h4>
-
-<!--places the text of the toppings in a simple box on the card-->
-<div class="card-body">
-   {{ entry.text|linebreaks }}
- </div>
-   </div>
- {% empty %}
-   <p>There are no toppings on this pizza.</p>
- {% endfor %}
-
-
- {% endblock content %}
 

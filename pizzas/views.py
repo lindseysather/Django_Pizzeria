@@ -32,7 +32,7 @@ def pizza(request, pizza_id):
 
 
 def image_upload_view(request):
-    """Process images uploaded by users"""
+    """Process images uploaded"""
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
