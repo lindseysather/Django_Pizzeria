@@ -35,6 +35,7 @@ class Comment(models.Model):
 
 
 class Image(models.Model):
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images')
 

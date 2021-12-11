@@ -7,16 +7,19 @@
 <div class="jumbotron">
     
 <!--first-level header-->
-  <h1 class="display-3">Pizzeria</h1>
+  <h1 class="display-3">Lindsey's Chicago Pizza</h1>
 
 <!--message-->
-    <p class="lead">View the each of our pizzas and their toppings. 
-        Please leave comments to tell us what you love about each pizza!
+    <p class="lead">World famous Chicago-style deep dish pizza.
+      Considered the home of deep dish pizza, Lindsey's Chicago
+      Pizza is as rich in history as its pizza is in flavor. Check
+      out our pizzas and leave comments on your favorites!
     </p>
 
+
 <!--create a button that invites users to register their account-->
-    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
-   role="button">Register &raquo;</a>
+    <a class="btn btn-lg btn-primary" href="{% url 'pizzas:pizzas_object' %}"
+   role="button">View our menu &raquo;</a>
  </div>
 
 <!--close the page_header block-->

@@ -24,22 +24,12 @@
    {% endfor %}
   
   
+    
   
-   {% for i in images %}
+   {% for i in image %}
   
-  <!--create a div element with the selector card-->
-    <div class="card mb-3">
+  i
   
-  <!--header-->
-  <h4 class="card-header">
-  {{ image }}
-   </h4>
-  
-  <!--places the text of the toppings in a simple box on the card-->
-  <div class="card-body">
-     {{ i }}
-   </div>
-     </div>
    {% empty %}
      <p>There are no photos of this pizza.</p>
    {% endfor %}
@@ -52,10 +42,6 @@
   </p>
   </h4>
 
-
-  <!--create a div element with the selector card-->
-
-  
   <h3
   <p>Comments</p>
   </h3>

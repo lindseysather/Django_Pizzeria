@@ -23,6 +23,7 @@ def pizza(request, pizza_id):
     
     toppings = pizza.toppings_set.all()
     comments = pizza.comment_set.all()
+    #images = pizza.image
 
     #key represents variable name in template
     #value represents variable name view 
