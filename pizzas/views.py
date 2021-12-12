@@ -40,14 +40,16 @@ def image_upload_view(request):
             form.save()
             # Get the current instance object to display in the template
             img_obj = form.instance
-            return render(request, 'index.html', {'form': form, 'img_obj': img_obj})
+            context = {'form':form, 'pizza':pizza}
+            return render(request, 'index.html', {'form': form, 'img_obj': img_obj}, context)
     else:
         form = ImageForm()
-    return render(request, 'index.html', {'form': form})
+    context = {'form':form, 'pizza':pizza}
+    return render(request, 'index.html', {'form': form}, context)
 
+ 
 
-
-def new_comment(request, pizza_id):
+def new_comment(request, pizza_id, user_id):
     pizza = Pizza.objects.get(id=pizza_id)
     if request.method != 'POST':
         form = CommentForm()
@@ -60,7 +62,7 @@ def new_comment(request, pizza_id):
             new_comment.pizza = pizza
             new_comment.save()
 
-            return redirect('pizzas:pizza', pizza_id=pizza_id)
+            return redirect('pizzas:pizza', pizza_id=pizza_id, user_id=user_id)
 
     context = {'form':form, 'pizza':pizza}
     return render(request, 'pizzas/new_comment.html', context)
