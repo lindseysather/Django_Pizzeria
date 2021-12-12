@@ -23,16 +23,11 @@
      <p>There are no toppings on this pizza.</p>
    {% endfor %}
   
-  
 
-   {% for i in image %}
-   <img src="{{ i.image.url }}" alt="img">
   
-
-   {% empty %}
-     <p>There are no photos of this pizza.</p>
-   {% endfor %}
-  
+   <p>
+   {% load static %} <img src="{% static "pizzas/media/pizza1.jpeg" %}" alt="home" />
+   </p>
   
 
 <h4>
