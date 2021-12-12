@@ -24,12 +24,11 @@
    {% endfor %}
   
   
-    
-  
+
    {% for i in image %}
+   <img src="{{ i.image.url }}" alt="img">
   
-  i
-  
+
    {% empty %}
      <p>There are no photos of this pizza.</p>
    {% endfor %}

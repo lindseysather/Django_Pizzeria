@@ -37,8 +37,14 @@ class Comment(models.Model):
 class Image(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='img')
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        db_table = 'myapp_image'
+
+class Pizza_Image(models.Model):
+    img = models.ImageField(upload_to='photos/',null=True,blank=True)
 

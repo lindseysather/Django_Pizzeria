@@ -1,5 +1,4 @@
 from django.contrib import admin
-#from .models import Image
 
 # Register your models here.
 from .models import Pizza, Toppings, Image, Comment
