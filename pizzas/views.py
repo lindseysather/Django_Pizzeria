@@ -23,11 +23,11 @@ def pizza(request, pizza_id):
     
     toppings = pizza.toppings_set.all()
     comments = pizza.comment_set.all()
-    #images = pizza.image
+    images = pizza.image_set.all()
 
     #key represents variable name in template
     #value represents variable name view 
-    context = {'pizza':pizza, 'toppings':toppings, 'comments':comments}
+    context = {'pizza':pizza, 'toppings':toppings, 'comments':comments, 'images':images}
 
     return render(request, 'pizzas/pizza.html', context)
 

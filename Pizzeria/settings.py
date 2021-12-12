@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     #third party apps
     'bootstrap4',
     'uploadImg',
+    'imagefit',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -130,3 +131,7 @@ STATIC_URL = '/static/'
 '''TRYING TO UPLOAD PICTURES'''
 MEDIA_URL='/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'pizzas/')
+
+
+
+IMAGEFIT_ROOT = "public"

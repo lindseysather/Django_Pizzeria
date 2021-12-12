@@ -3,28 +3,35 @@
 <!--tell Django we're about to define what goes in page_haeder-->
 {% block page_header %}
 
+<p>
+  {% load static %} <img src="{% static "pizzas/media/logo.png" %}" class="img-fluid" alt="Responsive image" />
+  </p>
+
 <!--jumbotron applies this group of styling from Bootstrap to this element-->
-<div class="jumbotron">
+<div class="jumbotron text-center">
     
+  <body style="background-color:rgb(43, 42, 42);"></body>
 <!--first-level header-->
-  <h1 class="display-3">Lindsey's Chicago Pizza</h1>
+
 
 <!--message-->
-    <p class="lead">World famous Chicago-style deep dish pizza.
+    <p<h3 class="lead">World famous Chicago-style deep dish pizza.
       Considered the home of deep dish pizza, Lindsey's Chicago
       Pizza is as rich in history as its pizza is in flavor. Check
       out our pizzas and leave comments on your favorites!
-    </p>
+      
+      <br></br>233 S Wacker Dr, Chicago, IL 60606</br>
+      (312) 875-0066</br>
+      </br>
+    </h3></p>
 
 
-<!--create a button that invites users to register their account-->
-    <a class="btn btn-lg btn-primary" href="{% url 'pizzas:pizzas_object' %}"
+    <a class="btn btn-danger btn-lg btn-primary" href="{% url 'pizzas:pizzas_object' %}"
    role="button">View our menu &raquo;</a>
  </div>
 
 <!--close the page_header block-->
 {% endblock page_header %}
-
 
 
 

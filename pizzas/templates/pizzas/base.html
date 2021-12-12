@@ -13,6 +13,7 @@ shrink-to-fit=no">
 {%bootstrap_css%}
 {%bootstrap_javascript jquery='full'%}
 
+
 </head>
 
 <!--body contains the content users will see on a page-->
@@ -46,7 +47,7 @@ aria-expanded="false" aria-label="Toggle navigation">
 <!--begin a new set of links-->
 <ul class="navbar-nav ml-auto">
 
-<!--conditional block to displaay messages to users depending on whether or not they're logged in-->
+<!--conditional block to display messages to users depending on whether or not they're logged in-->
  {% if user.is_authenticated %}
  <li class="nav-item">
 
@@ -76,17 +77,21 @@ aria-expanded="false" aria-label="Toggle navigation">
 <main role="main" class="container">
 
 <!--first div element contains a page_header block to title most pages-->
-   <div class="pb-2 mb-2 border-bottom">
+
  {% block page_header %}{% endblock page_header %}
    </div>
 
-<!--define div element that conntains the content-->
+<!--define div element that contains the content-->
    <div>
+
  {% block content %}{% endblock content %}
+ 
    </div>
+  
  </main>
 
  </body>
 
  </html>
+
     
