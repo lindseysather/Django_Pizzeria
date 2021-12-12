@@ -1,7 +1,8 @@
 {% extends 'pizzas/base.html' %}
 
  {% block page_header %}
- <h3>{{ pizza }}</h3>
+
+  <h1 class="display-1">{{ pizza }}</h1>
 {% endblock page_header %}
   
   {% block content %}
@@ -25,7 +26,7 @@
   
 
    <p>
-   {% load static %} <img src="{% static "pizzas/media/pizza1.jpeg" %}" alt="home" />
+   {% load static %} <img src="{% static "pizzas/media/gio-default.jpeg" %}" class="img-fluid" alt="Responsive image" alt="home" />
    </p>
 
    
