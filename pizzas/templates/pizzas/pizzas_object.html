@@ -2,13 +2,15 @@
 
 <!--Move Topics into header and style it-->
 {% block page_header %}
-<h1>Pizzas</h1>
-{% endblock page_header %}
-   
+<body style="background-color:rgb(43, 42, 42);"></body>
 
-{% block content %}
-<ul>
+<p>
+    {% load static %} <img src="{% static "pizzas/media/logo.png" %}" class="img-fluid" alt="Responsive image" />
+    </p>
+    
 
+    <div class="jumbotron">
+        <h1>Pizzas</h1>
     {% for p in pizzas_object %}
 
     <!--style each topic as an <h3> element to make them larger on the page-->
@@ -18,7 +20,6 @@
     {% empty %}
     <li><h3>No pizzas have been added yet.</h3></li>
     {% endfor %}
-</ul>
+</p></h3></div>
 
-
-{% endblock content %}
+{% endblock page_header %}
