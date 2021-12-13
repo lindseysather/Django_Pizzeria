@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 '''from class'''
 from pizzas.forms import ImageForm, CommentForm
@@ -48,7 +49,7 @@ def image_upload_view(request):
     return render(request, 'index.html', {'form': form}, context)
 
  
-
+@login_required
 def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     if request.method != 'POST':

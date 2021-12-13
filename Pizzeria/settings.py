@@ -127,6 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGIN_URL = 'users:login'
+
 
 '''TRYING TO UPLOAD PICTURES'''
 MEDIA_URL='/media/'
