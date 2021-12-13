@@ -49,7 +49,7 @@ def image_upload_view(request):
 
  
 
-def new_comment(request, pizza_id, user_id):
+def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     if request.method != 'POST':
         form = CommentForm()
@@ -62,7 +62,7 @@ def new_comment(request, pizza_id, user_id):
             new_comment.pizza = pizza
             new_comment.save()
 
-            return redirect('pizzas:pizza', pizza_id=pizza_id, user_id=user_id)
+            return redirect('pizzas:pizza', pizza_id=pizza_id)
 
     context = {'form':form, 'pizza':pizza}
     return render(request, 'pizzas/new_comment.html', context)
