@@ -7,9 +7,3 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['name']
         labels = {'name':''}
-
-class ImageForm(forms.ModelForm):
-    '''Form for the image model'''
-    class Meta:
-        model = Image
-        fields = ('title', 'image')

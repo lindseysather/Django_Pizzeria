@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 '''from class'''
-from pizzas.forms import ImageForm, CommentForm
+from pizzas.forms import CommentForm
 from .models import Pizza
 
 # Create your views here.
@@ -33,22 +33,6 @@ def pizza(request, pizza_id):
     return render(request, 'pizzas/pizza.html', context)
 
 
-def image_upload_view(request):
-    """Process images uploaded"""
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            # Get the current instance object to display in the template
-            img_obj = form.instance
-            context = {'form':form, 'pizza':pizza}
-            return render(request, 'index.html', {'form': form, 'img_obj': img_obj}, context)
-    else:
-        form = ImageForm()
-    context = {'form':form, 'pizza':pizza}
-    return render(request, 'index.html', {'form': form}, context)
-
- 
 @login_required
 def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
