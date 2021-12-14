@@ -25,14 +25,17 @@
    {% endfor %}
   
 
-   <p>
-   {% load static %} <img src="{% static "pizzas/media/gio-default.jpeg" %}" class="img-fluid" alt="Responsive image" alt="home" />
-   </p>
-
    
-    <img class='image' src='{{image.url}}' >
-    
+
+{% for img in images %}
   
+    <p>
+      <img src="{{ img.image.url }}" class="img-fluid" alt="Responsive image" alt="home"/>
+    </p>
+    
+
+    {% endfor %}
+
 
 <h4>
    <p>

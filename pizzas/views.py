@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render,redirect
+from .models import Image
+
 
 '''from class'''
 from pizzas.forms import CommentForm
@@ -51,3 +54,4 @@ def new_comment(request, pizza_id):
 
     context = {'form':form, 'pizza':pizza}
     return render(request, 'pizzas/new_comment.html', context)
+

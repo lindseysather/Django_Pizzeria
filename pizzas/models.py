@@ -29,7 +29,6 @@ class Comment(models.Model):
     name = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
-
     def __str__(self):
         return self.name
 
@@ -41,6 +40,3 @@ class Image(models.Model):
 
     def __str__(self):
         return self.title
-
-    #class Meta:
-        #db_table = 'myapp_image'
